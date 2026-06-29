@@ -1,0 +1,207 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sora: "Sora", sans-serif;
+  --font-inter: "Inter", sans-serif;
+  --font-geist: "Geist Mono", monospace;
+
+  --color-bg-base: #09090b;
+  --color-bg-surface: #121215;
+  --color-bg-panel: #18181c;
+
+  --color-primary: #ffffff;
+  --color-accent: #3f3f46;
+
+  --color-text-primary: #f4f4f5;
+  --color-text-secondary: #a1a1aa;
+  --color-text-muted: #52525b;
+
+  --color-border-subtle: #202024;
+  --color-border-active: #3f3f46;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", sans-serif;
+  background: #09090b;
+  color: #f4f4f5;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ============================================================
+   PREMIUM INTERACTIONS & LAYOUTS
+   ============================================================ */
+
+/* Fine-line border card */
+.premium-panel {
+  background: #121215;
+  border: 1px solid #202024;
+  border-radius: 8px;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.premium-panel:hover {
+  border-color: #27272a;
+}
+
+/* Interactive elements */
+.input-field {
+  background: transparent;
+  border: 1px solid #202024;
+  border-radius: 6px;
+  color: #f4f4f5;
+  font-family: "Inter", sans-serif;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.input-field:focus {
+  outline: none;
+  border-color: #52525b;
+}
+
+/* Button style inspired by Vercel/Linear */
+.btn-premium {
+  background: #ffffff;
+  color: #09090b;
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  border: 1px solid #ffffff;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.1s ease;
+}
+
+.btn-premium:hover {
+  background: #e4e4e7;
+  border-color: #e4e4e7;
+}
+
+.btn-premium:active {
+  transform: scale(0.98);
+}
+
+.btn-premium:disabled {
+  background: #27272a;
+  border-color: #27272a;
+  color: #71717a;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Minimal secondary button */
+.btn-secondary {
+  background: transparent;
+  color: #f4f4f5;
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  border: 1px solid #202024;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.btn-secondary:hover {
+  background: #18181c;
+  border-color: #27272a;
+}
+
+/* Score display progress */
+.score-track {
+  background: #18181c;
+  border-radius: 2px;
+}
+
+.score-fill {
+  background: #ffffff;
+  border-radius: 2px;
+  transition: width 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Skeleton Loading (Ultra-minimalist) */
+.skeleton-line {
+  background: linear-gradient(
+    90deg,
+    #18181c 25%,
+    #202024 50%,
+    #18181c 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite linear;
+  border-radius: 4px;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Scroll area */
+.response-viewport {
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #27272a transparent;
+}
+
+.response-viewport::-webkit-scrollbar {
+  width: 4px;
+}
+
+.response-viewport::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.response-viewport::-webkit-scrollbar-thumb {
+  background: #27272a;
+  border-radius: 2px;
+}
+
+/* Fine-dot grid background effect */
+.grid-bg {
+  background-size: 20px 20px;
+  background-image: radial-gradient(circle, #202024 1px, transparent 1px);
+}
+
+/* Fade in animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Pulsing DOT for live status */
+@keyframes pulse-dot {
+  0%, 100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.status-dot {
+  animation: pulse-dot 1.5s infinite ease-in-out;
+}
